@@ -11,9 +11,9 @@ session = Session()
 # distinct() = sirve para eliminar duplicados si hay múltiples entregas
 
 departamentos_bajas_calificaciones = session.query(Departamento) \
-    .join(Departamento.cursos) \
-    .join(Curso.tareas) \
-    .join(Tarea.entregas) \
+    .join(Curso) \
+    .join(Tarea) \
+    .join(Entrega) \
     .filter(Entrega.calificacion <= 0.3) \
     .distinct() \
     .all()
